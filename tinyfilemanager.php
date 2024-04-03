@@ -1,6 +1,6 @@
 <?php
 //Default Configuration
-$CONFIG = '{"lang":"en","error_reporting":false,"show_hidden":false,"hide_Cols":false,"theme":"light"}';
+$CONFIG = '{"lang":"zh-CN","error_reporting":false,"show_hidden":true,"hide_Cols":false,"theme":"light"}';
 
 /**
  * H3K | Tiny File Manager V2.5.3
@@ -21,7 +21,7 @@ define('APP_TITLE', 'Tiny File Manager');
 // Auth with login/password
 // set true/false to enable/disable it
 // Is independent from IP white- and blacklisting
-$use_auth = true;
+$use_auth = false;
 
 // Login user name and password
 // Users: array('Username' => 'Password', 'Username2' => 'Password2', ...)
@@ -60,11 +60,11 @@ $default_timezone = 'Etc/UTC'; // UTC
 
 // Root path for file manager
 // use absolute path of directory i.e: '/var/www/folder' or $_SERVER['DOCUMENT_ROOT'].'/folder'
-$root_path = $_SERVER['DOCUMENT_ROOT'];
+$root_path = $_SERVER['DOCUMENT_ROOT'].'/data';
 
 // Root url for links in file manager.Relative to $http_host. Variants: '', 'path/to/subfolder'
 // Will not working if $root_path will be outside of server document root
-$root_url = '';
+$root_url = 'data/';
 
 // Server hostname. Can set manually if wrong
 // $_SERVER['HTTP_HOST'].'/folder'
@@ -81,7 +81,7 @@ $datetime_format = 'm/d/Y g:i A';
 // 'full' => show full path
 // 'relative' => show path relative to root_path
 // 'host' => show path on the host
-$path_display_mode = 'full';
+$path_display_mode = 'relative';
 
 // Allowed file extensions for create and rename files
 // e.g. 'txt,html,css,js'
@@ -98,7 +98,9 @@ $favicon_path = '';
 
 // Files and folders to excluded from listing
 // e.g. array('myfile.html', 'personal-folder', '*.php', ...)
-$exclude_items = array();
+$exclude_items = array(
+    'bin', 'boot', 'dev', 'etc', 'lib', 'lib64', 'lost+found', 'proc', 'run', 'sbin', 'swapfile', 'sys', 'timeshift'
+);
 
 // Online office Docs Viewer
 // Availabe rules are 'google', 'microsoft' or false
